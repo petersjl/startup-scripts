@@ -1,0 +1,1 @@
+Copy-Item .\WindowsProfile.ps1 $PROFILE
