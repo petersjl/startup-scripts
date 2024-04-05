@@ -1,6 +1,6 @@
 new-alias -Name np -Value notepad
 # General functions
-Function prof { np $PROFILE }
+Function prof { code $PROFILE }
 Function w {wsl ~}
 Function e {explorer .}
 Function c {
