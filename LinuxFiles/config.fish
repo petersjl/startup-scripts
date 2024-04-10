@@ -25,7 +25,11 @@ if status is-interactive
 	end
 
 	function cdd
-		cd ..
+		cd ../$argv[1]
+	end
+
+	function cdh
+		cd ~/$argv[1]
 	end
 
 	function reload
