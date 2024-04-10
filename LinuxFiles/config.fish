@@ -1,4 +1,9 @@
 if status is-interactive
+	# Add the personal bin to path if it exists
+	if [ -d "$HOME/bin" ] 
+		set PATH "$HOME/bin:$PATH"
+	end
+
 	# If this is in WSL, change some things
 	if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]
 		set BROWSER wslview
