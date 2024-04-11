@@ -10,10 +10,10 @@ if ! command -v fish > /dev/null; then
 fi
 chsh -s /usr/bin/fish
 
-if test -f ./LinuxLoader.fish; then
-    fish ./LinuxLoader.fish
+if test -f ./LinuxFiles/LinuxLoader.fish; then
+    fish ./LinuxFiles/LinuxLoader.fish
     exec fish
 else
-    echo "Missing file 'LinuxLoader.fish'"
+    echo "Missing file './LinuxFiles/LinuxLoader.fish'"
     exit 1
 fi
