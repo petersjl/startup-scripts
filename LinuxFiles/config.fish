@@ -10,7 +10,7 @@ if status is-interactive
 	end
 
 	# Commands to run in interactive sessions can go here
-	function conf
+	function prof
 		vim ~/.config/fish/config.fish
 	end
 
