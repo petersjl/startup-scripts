@@ -47,6 +47,10 @@ if status is-interactive
 				fish {$file}
 			end
 		end
+	end	
+
+	function cx
+		chmod +x $argv[1]
 	end
 	
 	# APT aliases
