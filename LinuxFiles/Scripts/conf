@@ -1,0 +1,182 @@
+#!/bin/bash
+CONF_FILE="./.git/configfiles"
+NOT_INITIALIZED="No config files defined. Run 'conf add <files...>' first"
+
+conf() {
+    if ! [ -d ./.git ]; then
+        echo "Current directory is not a git repository root folder"
+        exit
+    fi
+
+    if [ -z "$1" ]; then
+        help 'default'
+        exit
+    else
+        first=$1
+        shift 1
+    fi
+
+    case $first in
+    "show"|'s')
+        show
+        ;;
+    "hide"|'h')
+        hide
+        ;;
+    "add"|'a')
+        add $@
+        ;;
+    "remove"|'r')
+        remove $@
+        ;;
+    "list"|'l')
+        list
+        ;;
+    "help")
+        help $@
+        ;;
+    *)
+        echo "Invalid command. Type 'conf help' for usage"
+        exit 1;
+        ;;
+    esac
+}
+
+show() {
+    if ! [ -f $CONF_FILE ]; then
+        echo $NOT_INITIALIZED
+        return
+    fi
+
+    mapfile -t contents < $CONF_FILE
+    for file in "${contents[@]}"; do
+        git update-index --no-skip-worktree $file
+    done
+}
+
+hide() {
+    if ! [ -f $CONF_FILE ]; then
+        echo $NOT_INITIALIZED
+        return
+    fi
+
+    mapfile -t contents < $CONF_FILE
+    for file in "${contents[@]}"; do
+        git update-index --skip-worktree $file
+    done
+}
+
+add() {
+    if [ $# -lt 1 ]; then
+        help "add"
+    fi
+
+    if ! [ -f $CONF_FILE ]; then
+        touch $CONF_FILE
+    fi
+    
+    mapfile -t contents < $CONF_FILE
+    for add_file in $@; do
+        added=false
+        for file in "${contents[@]}"; do
+            if [ "$file" == "$add_file" ]; then
+                added=true
+                break
+            fi
+        done
+        if ! $added; then
+            echo $add_file >> $CONF_FILE
+        fi
+    done    
+}
+
+remove() {
+    if [ $# -lt 1 ]; then
+        help "remove"
+    fi
+
+    if ! [ -f $CONF_FILE ]; then
+        echo "No files have been configured"
+        return
+    fi
+
+    mapfile -t contents < $CONF_FILE
+    modified=false
+    for rem_file in "$@"; do
+        removed=false
+        for i in "${!contents[@]}"; do
+            if [[ "${contents[i]}" == "$rem_file" ]]; then
+                unset 'contents[i]' # remove an item from an array
+                modified=true
+                removed=true
+                break
+            fi
+        done
+        if ! $removed; then
+            echo "File <$rem_file> not found in config index"
+        fi
+    done
+    if $modified; then
+        if [[ "${#contents[@]}" -eq 0 ]]; then
+            > $CONF_FILE # This clears the file without leaving a blank line
+        else
+            printf "%s\n" "${contents[@]}" > $CONF_FILE
+        fi
+    fi
+}
+
+list() {
+    if ! [ -f $CONF_FILE ]; then
+        echo $NOT_INITIALIZED
+        return
+    fi
+
+    mapfile -t contents < $CONF_FILE
+    if [ ${#contents[@]} -lt 1 ]; then
+        echo "No files have been configured"
+    else
+        cat $CONF_FILE
+    fi
+}
+
+help() {
+    case $1 in
+    'show'|'s')
+        echo $'\tShow all files in the config index'
+        echo $'\tUsage: conf <show | s>'
+        ;;
+    'hide'|'h')
+        echo $'\tHide all files in the config index'
+        echo $'\tUsage: conf <hide | h>'
+        ;;
+    'add'|'a')
+        echo $'\tAdd a file to the config index'
+        echo $'\tUsage: conf <add | a> file1 [files...]'
+        ;;
+    'remove'|'r')
+        echo $'\tRemove a file from the config index'
+        echo $'\tUsage: conf <remove | r> file1 [files...]'
+        ;;
+    'list'|'l')
+        echo $'\tList all files in the config index'
+        echo $'\tUsage: conf <list | l>'
+        ;;
+    'default')
+        echo $'This program is used to track files that need to change\nbut you don\'t want to be shown in the git worktree as \nchanged (like config files)\n'
+        echo $'Usage: conf <command> [<args>]\n'
+        echo 'Commands:'
+        echo $'\tshow | s\tShow all files in the config index'
+        echo $'\thide | h\tHide all files in the config index'
+        echo $'\tadd | a\t\tAdd a file to the config index'
+        echo $'\tremove | r\tRemove a file from the config index'
+        echo $'\tlist | l\tList all files in the config index'
+        echo $'\thelp\t\tShow help for a given subcommand'
+        ;;
+    *)
+        echo $'\tShows help for a given subcommand'
+        echo $'\tUsage: conf help <subcommand>'
+        ;;
+    esac
+}
+
+conf $@
