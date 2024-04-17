@@ -8,7 +8,7 @@ function conf (
 {
     # Make sure we're in a git repository
     if (!(Test-Path ./.git -PathType Container)) {
-        Write-Output "Current directory is not a git repository"
+        Write-Output "Current directory is not a git repository root directory"
         return
     } 
 
