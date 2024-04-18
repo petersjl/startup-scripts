@@ -7,17 +7,21 @@ command -v apt-get > /dev/null || { echo "apt-get is required to run this script
 
 if ! command -v fish > /dev/null; then
     sudo apt-add-repository -y ppa:fish-shell/release-3
-    sudo apt update
-    sudo apt install -y fish
+    sudo apt update 
 fi
+
+# Install all the commands from apt
+sudo apt install -y fish neovim zip
+
+# Set fish and neovim as the defaults
 chsh -s /usr/bin/fish
+echo "SELECTED_EDITOR=\"$(which nvim)\"" > ~/.selected_editor
 
 if test -f ./LinuxFiles/LinuxLoader.fish; then
     fish ./LinuxFiles/LinuxLoader.fish
     exec fish
 else
     echo "Missing file './LinuxFiles/LinuxLoader.fish'"
-    exit 1
 fi
 
 if test -d $SCRIPT_LOCATION; then
@@ -30,3 +34,5 @@ if test -d $SCRIPT_LOCATION; then
         cp "$SCRIPT_LOCATION/$file" ~/bin/
     done
 fi
+
+exec fish
