@@ -9,6 +9,9 @@ if status is-interactive
 		set BROWSER wslview
 	end
 
+	# Add custom keybinds
+	bind \b backward-kill-word
+
 	# Commands to run in interactive sessions can go here
 	function prof
 		vim ~/.config/fish/config.fish
@@ -47,7 +50,7 @@ if status is-interactive
 				fish {$file}
 			end
 		end
-	end	
+	end
 
 	function cx
 		chmod +x $argv[1]
