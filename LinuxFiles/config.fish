@@ -14,7 +14,7 @@ if status is-interactive
 
 	# Commands to run in interactive sessions can go here
 	function prof
-		vim ~/.config/fish/config.fish
+		edit ~/.config/fish/config.fish
 	end
 
 	function funcdel
@@ -33,6 +33,10 @@ if status is-interactive
 
 	function cdh
 		cd ~/$argv[1]
+	end
+
+	function edit
+		sensible-editor $argv[1]
 	end
 
 	function reload
