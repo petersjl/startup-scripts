@@ -1,5 +1,5 @@
 if [ -f ./config.fish ]
-    cp ./config.fish ~/.config/fish/config.fish
+    cp -f ./config.fish ~/.config/fish/config.fish
 end
 
 if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]
