@@ -22,3 +22,6 @@ if(Test-Path $modules_location -PathType Container) {
     Copy-Item -Path "$modules_location\*" -Destination $module_destination -Recurse
     Unblock-File -Path "$module_destination\*"
 }
+
+# Run other install packages
+pwsh ./VSCode/install.ps1
