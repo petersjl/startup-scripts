@@ -1,3 +1,8 @@
+# Make this script run from it's own directory
+$scriptpath = $MyInvocation.MyCommand.Path
+$dir = Split-Path $scriptpath
+Push-Location $dir
+
 $profile_location = ".\profile.ps1"
 $modules_location = ".\Modules"
 
