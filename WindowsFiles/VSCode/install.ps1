@@ -10,6 +10,9 @@ refreshpath
 
 # Copy over the settings.json
 $settingsPath = "$env:APPDATA\Code\User\settings.json"
+if(Test-Path $settingsPath -PathType Leaf){
+    New-Item $settingsPath -Type File -Force
+}
 Copy-Item -Path ./settings.json -Destination $settingsPath -Force 1> $null
 
 # Install extensions
