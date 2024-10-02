@@ -9,6 +9,13 @@ if status is-interactive
 		set BROWSER wslview
 	end
 
+	# Add homebrew to path
+	if [ -d "/home/linuxbrew/.linuxbrew/bin/brew" ]
+		set PATH "$PATH:/home/linuxbrew/.linuxbrew/bin/brew"
+	else
+		echo "Missing homebrew"
+	end
+
 	# Add custom keybinds
 	bind \b backward-kill-word
 

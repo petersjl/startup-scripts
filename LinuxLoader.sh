@@ -11,7 +11,7 @@ if ! command -v fish > /dev/null; then
 fi
 
 # Install all the commands from apt
-sudo apt install -y fish neovim zip
+sudo apt install -y fish neovim zip build-essentials
 
 # Set fish and neovim as the defaults
 chsh -s /usr/bin/fish
@@ -19,7 +19,6 @@ echo "SELECTED_EDITOR=\"$(which nvim)\"" > ~/.selected_editor
 
 if test -f ./LinuxFiles/LinuxLoader.fish; then
     fish ./LinuxFiles/LinuxLoader.fish
-    exec fish
 else
     echo "Missing file './LinuxFiles/LinuxLoader.fish'"
 fi
