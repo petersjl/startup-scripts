@@ -1,0 +1,5 @@
+require("plugins")
+require("config")
+require("keybinds")
+require("theme")
+require("lsp/lsp")
