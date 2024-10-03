@@ -23,6 +23,13 @@ else
     echo "Missing file './LinuxFiles/LinuxLoader.fish'"
 fi
 
+NVIM_CONF="./LinuxFiles/config/nvim"
+if test -d $NVIM_CONF; then
+	cp -r $NVIM_CONF "~/.config/"
+else
+	echo "Missing neovim config files"
+fi
+
 if test -d $SCRIPT_LOCATION; then
     if ! test -d ~/bin; then
         mkdir ~/bin
