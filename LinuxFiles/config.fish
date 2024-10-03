@@ -37,7 +37,7 @@ if status is-interactive
 	end
 
 	function cdd
-		cd ../$argv[1]
+		cd ..
 	end
 
 	function cdh
