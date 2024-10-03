@@ -15,6 +15,9 @@ if status is-interactive
 		echo "Missing homebrew"
 	end
 
+	set -gx VISUAL nvim
+	set -gx EDITOR $VISUAL
+
 	# Add custom keybinds
 	bind \b backward-kill-word
 
