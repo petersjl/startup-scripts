@@ -80,5 +80,27 @@ if status is-interactive
 		sudo apt-get update
 	end
 
+	# Git
+	function gph
+		git push $argv
+	end
+	function gpl
+		git pull $argv
+	end
+	function gf
+		git fetch $argv
+	end
+	function gs
+		git status $argv
+	end
+	function gas
+		git add * $argv
+	end
+	function gcm
+		git commit -m $argv
+	end
+	function gtree
+		git log --graph --oneline --all
+	end
 
 end
