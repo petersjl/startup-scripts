@@ -37,23 +37,71 @@
       "after": ["y", "$"]
     },
     {
+      "before": ["d", "p"],
+      "after": ["d", "d", "p"]
+    },
+    {
+      "before": ["d", "P"],
+      "after": ["d", "d", "k", "P"]
+    },
+    {
+      "before": ["g", "R"],
+      "after": ["g", "r", "$"]
+    },
+    {
       "before": ["<leader>", "q"],
+      "commands": [":q"]
+    },
+    {
+      "before": ["<leader>", "Q"],
+      "commands": [":qa"]
+    },
+    {
+      "before": ["<leader>", "<leader>", "q"],
       "commands": [":edit!"]
     },
     {
-      "before": ["<C-w>", "H"],
+      "before": ["<leader>", "w"],
+      "commands": [":w"]
+    },
+    {
+      "before": ["<leader>", "W"],
+      "commands": [":wa"]
+    },
+    {
+      "before": ["<leader>", "s"],
+      "after": [":", "%", "s", "/"]
+    },
+    {
+      "before": ["<leader>", "h"],
+      "after": ["<c-w>", "h"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "after": ["<c-w>", "j"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "after": ["<c-w>", "k"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "after": ["<c-w>", "l"]
+    },
+    {
+      "before": ["<leader>", "H"],
       "commands": ["workbench.action.moveEditorToLeftGroup"]
     },
     {
-      "before": ["<C-w>", "J"],
+      "before": ["<leader>", "J"],
       "commands": ["workbench.action.moveEditorToBelowGroup"]
     },
     {
-      "before": ["<C-w>", "K"],
+      "before": ["<leader>", "K"],
       "commands": ["workbench.action.moveEditorToAboveGroup"]
     },
     {
-      "before": ["<C-w>", "L"],
+      "before": ["<leader>", "L"],
       "commands": ["workbench.action.moveEditorToRightGroup"]
     },
     {
@@ -89,7 +137,7 @@
       "commands": ["editor.action.rename"]
     },
     {
-      "before": ["<leader>", "h"],
+      "before": ["<leader>", "b"],
       "commands": ["workbench.action.closePanel"]
     },
     {
@@ -111,6 +159,12 @@
     {
       "before": ["c-p"],
       "after": ["<c-r", "+"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["<leader>", "s"],
+      "after": ["y", ":", "%", "s", "/", "<c-p>", "/"]
     }
   ]
 }
