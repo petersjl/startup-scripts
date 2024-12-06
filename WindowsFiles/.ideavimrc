@@ -1,0 +1,78 @@
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+map <Space> <nop>
+let mapleader="\<Space>"
+
+set relativenumber
+set number
+set scrolloff=5
+set clipboard+=unnamed
+set smartcase
+"set hlsearch
+set incsearch
+set notimeout
+
+set peekaboo
+"set switch
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'tommcdo/vim-exchange'
+"Plug 'junegunn/vim-peekaboo'
+"Plug 'AndrewRadev/switch.vim'
+
+"nmap - :Switch<CR> --- Doesn't work for now
+
+" Normal Mode Keymaps
+" vim keymaps
+map K i<CR><ESC>
+map Y y$
+map gR gr$
+nmap dp ddp
+nmap dP ddkP
+map <leader>q :q<CR>
+map <leader>Q :qa<CR>
+map <leader><leader>q :edit!<CR>
+map <leader>w :w<CR>
+map <leader>W :wa<CR>
+" editor action keymaps
+map gh <Action>(ShowHoverInfo)
+map <leader>e <Action>(GotoNextError)
+map <leader>v <Action>(VimFindActionIdAction)
+map <leader>V <Action>(IdeaVim.ReloadVimRc.reload)
+map <leader>f <Action>(FindInPath)
+map <leader>i <Action>(ShowIntentionActions)
+map <leader>r <Action>(Run)
+map <leader>t <Action>(RiderUnitTestRunContextAction)
+map <leader>x :NERDTreeToggle<CR>
+map <leader>b  <Action>(HideAllWindows)
+" window management
+map <leader>l <C-W>l
+map <leader>j <C-W>j
+map <leader>k <C-W>k
+map <leader>h <C-W>h
+map <leader>L <Action>(TabShiftActions.ShiftRight)
+map <leader>J <Action>(TabShiftActions.ShiftDown)
+map <leader>K <Action>(TabShiftActions.ShiftUp)
+map <leader>H <Action>(TabShiftActions.ShiftLeft)
+
+# Visual Mode Keymaps
+vmap f <Action>(FindInPath)
+vmap <leader>s y:%s/<c-p>/
+
+# Insert/Command Mode Keymaps
+imap <C-p> <c-r>+
+cmap <C-p> <c-r>+
+
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
