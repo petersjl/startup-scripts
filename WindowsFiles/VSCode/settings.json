@@ -1,170 +1,170 @@
 {
-  "workbench.colorTheme": "Default Dark Modern",
-  "editor.minimap.enabled": false,
-  "security.allowedUNCHosts": ["wsl.localhost"],
-  "git.autofetch": true,
-  "security.restrictUNCAccess": false,
-  "security.workspace.trust.untrustedFiles": "open",
-  "editor.formatOnSave": true,
-  "editor.lineNumbers": "relative",
-  "editor.glyphMargin": true,
-  "markdown.preview.scrollPreviewWithEditor": false,
-  "markdown.preview.scrollEditorWithPreview": false,
-  "[json][jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    }
-  },
-  "isort.args": ["--profile", "black"],
-  "vim.useSystemClipboard": true,
-  "vim.replaceWithRegister": true,
-  "vim.visualstar": true,
-  "vim.foldfix": true,
-  "vim.highlightedyank.enable": true,
-  "vim.leader": "<Space>",
-  "vim.normalModeKeyBindings": [
-    {
-      "before": ["K"],
-      "after": ["i", "<CR>", "<ESC>", "l"]
-    },
-    {
-      "before": ["Y"],
-      "after": ["y", "$"]
-    },
-    {
-      "before": ["d", "p"],
-      "after": ["d", "d", "p"]
-    },
-    {
-      "before": ["d", "P"],
-      "after": ["d", "d", "k", "P"]
-    },
-    {
-      "before": ["g", "R"],
-      "after": ["g", "r", "$"]
-    },
-    {
-      "before": ["<leader>", "q"],
-      "commands": [":q"]
-    },
-    {
-      "before": ["<leader>", "Q"],
-      "commands": [":qa"]
-    },
-    {
-      "before": ["<leader>", "<leader>", "q"],
-      "commands": [":edit!"]
-    },
-    {
-      "before": ["<leader>", "w"],
-      "commands": [":w"]
-    },
-    {
-      "before": ["<leader>", "W"],
-      "commands": [":wa"]
-    },
-    {
-      "before": ["<leader>", "s"],
-      "after": [":", "%", "s", "/"]
-    },
-    {
-      "before": ["<leader>", "h"],
-      "after": ["<c-w>", "h"]
-    },
-    {
-      "before": ["<leader>", "j"],
-      "after": ["<c-w>", "j"]
-    },
-    {
-      "before": ["<leader>", "k"],
-      "after": ["<c-w>", "k"]
-    },
-    {
-      "before": ["<leader>", "l"],
-      "after": ["<c-w>", "l"]
-    },
-    {
-      "before": ["<leader>", "H"],
-      "commands": ["workbench.action.moveEditorToLeftGroup"]
-    },
-    {
-      "before": ["<leader>", "J"],
-      "commands": ["workbench.action.moveEditorToBelowGroup"]
-    },
-    {
-      "before": ["<leader>", "K"],
-      "commands": ["workbench.action.moveEditorToAboveGroup"]
-    },
-    {
-      "before": ["<leader>", "L"],
-      "commands": ["workbench.action.moveEditorToRightGroup"]
-    },
-    {
-      "before": ["<leader>", "F"],
-      "commands": ["workbench.action.findInFiles"]
-    },
-    {
-      "before": ["<leader>", "f"],
-      "commands": ["workbench.action.quickOpen"]
-    },
-    {
-      "before": ["<leader>", "t", "t"],
-      "commands": ["testing.runAtCursor"]
-    },
-    {
-      "before": ["<leader>", "t", "d"],
-      "commands": ["testing.debugAtCursor"]
-    },
-    {
-      "before": ["<leader>", "t", "f"],
-      "commands": ["testing.runCurrentFile"]
-    },
-    {
-      "before": ["<leader>", "t", "a"],
-      "commands": ["testing.refreshTests", "testing.runAll"]
-    },
-    {
-      "before": ["<leader>", "t", "r"],
-      "commands": ["testing.refreshTests"]
-    },
-    {
-      "before": ["<leader>", "R"],
-      "commands": ["editor.action.rename"]
-    },
-    {
-      "before": ["<leader>", "b"],
-      "commands": ["workbench.action.closePanel"]
-    },
-    {
-      "before": ["<leader>", "e"],
-      "commands": ["editor.action.marker.next"]
-    },
-    {
-      "before": ["<leader>", "m"],
-      "commands": ["markdown.showPreviewToSide"]
-    }
-  ],
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["<c-p>"],
-      "after": ["<c-r>", "+"]
-    }
-  ],
-  "vim.commandLineModeKeyBindings": [
-    {
-      "before": ["c-p"],
-      "after": ["<c-r", "+"]
-    }
-  ],
-  "vim.visualModeKeyBindings": [
-    {
-      "before": ["<leader>", "s"],
-      "after": ["y", ":", "%", "s", "/", "<c-p>", "/"]
-    }
-  ]
+	"workbench.colorTheme": "Default Dark Modern",
+	"editor.minimap.enabled": false,
+	"security.allowedUNCHosts": ["wsl.localhost"],
+	"git.autofetch": true,
+	"security.restrictUNCAccess": false,
+	"security.workspace.trust.untrustedFiles": "open",
+	"editor.formatOnSave": true,
+	"editor.lineNumbers": "relative",
+	"editor.glyphMargin": true,
+	"markdown.preview.scrollPreviewWithEditor": false,
+	"markdown.preview.scrollEditorWithPreview": false,
+	"[json][jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.black-formatter",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "explicit"
+		}
+	},
+	"isort.args": ["--profile", "black"],
+	"vim.useSystemClipboard": true,
+	"vim.replaceWithRegister": true,
+	"vim.visualstar": true,
+	"vim.foldfix": true,
+	"vim.highlightedyank.enable": true,
+	"vim.leader": "<Space>",
+	"vim.normalModeKeyBindings": [
+		{
+			"before": ["K"],
+			"after": ["i", "<CR>", "<ESC>", "l"]
+		},
+		{
+			"before": ["Y"],
+			"after": ["y", "$"]
+		},
+		{
+			"before": ["d", "p"],
+			"after": ["d", "d", "p"]
+		},
+		{
+			"before": ["d", "P"],
+			"after": ["d", "d", "k", "P"]
+		},
+		{
+			"before": ["g", "R"],
+			"after": ["g", "r", "$"]
+		},
+		{
+			"before": ["<leader>", "q"],
+			"commands": [":q"]
+		},
+		{
+			"before": ["<leader>", "Q"],
+			"commands": [":qa"]
+		},
+		{
+			"before": ["<leader>", "<leader>", "q"],
+			"commands": [":edit!"]
+		},
+		{
+			"before": ["<leader>", "w"],
+			"commands": [":w"]
+		},
+		{
+			"before": ["<leader>", "W"],
+			"commands": [":wa"]
+		},
+		{
+			"before": ["<leader>", "s"],
+			"after": [":", "%", "s", "/"]
+		},
+		{
+			"before": ["<leader>", "h"],
+			"after": ["<c-w>", "h"]
+		},
+		{
+			"before": ["<leader>", "j"],
+			"after": ["<c-w>", "j"]
+		},
+		{
+			"before": ["<leader>", "k"],
+			"after": ["<c-w>", "k"]
+		},
+		{
+			"before": ["<leader>", "l"],
+			"after": ["<c-w>", "l"]
+		},
+		{
+			"before": ["<leader>", "H"],
+			"commands": ["workbench.action.moveEditorToLeftGroup"]
+		},
+		{
+			"before": ["<leader>", "J"],
+			"commands": ["workbench.action.moveEditorToBelowGroup"]
+		},
+		{
+			"before": ["<leader>", "K"],
+			"commands": ["workbench.action.moveEditorToAboveGroup"]
+		},
+		{
+			"before": ["<leader>", "L"],
+			"commands": ["workbench.action.moveEditorToRightGroup"]
+		},
+		{
+			"before": ["<leader>", "F"],
+			"commands": ["workbench.action.findInFiles"]
+		},
+		{
+			"before": ["<leader>", "f"],
+			"commands": ["workbench.action.quickOpen"]
+		},
+		{
+			"before": ["<leader>", "t", "t"],
+			"commands": ["testing.runAtCursor"]
+		},
+		{
+			"before": ["<leader>", "t", "d"],
+			"commands": ["testing.debugAtCursor"]
+		},
+		{
+			"before": ["<leader>", "t", "f"],
+			"commands": ["testing.runCurrentFile"]
+		},
+		{
+			"before": ["<leader>", "t", "a"],
+			"commands": ["testing.refreshTests", "testing.runAll"]
+		},
+		{
+			"before": ["<leader>", "t", "r"],
+			"commands": ["testing.refreshTests"]
+		},
+		{
+			"before": ["<leader>", "R"],
+			"commands": ["editor.action.rename"]
+		},
+		{
+			"before": ["<leader>", "b"],
+			"commands": ["workbench.action.closePanel"]
+		},
+		{
+			"before": ["<leader>", "e"],
+			"commands": ["editor.action.marker.next"]
+		},
+		{
+			"before": ["<leader>", "m"],
+			"commands": ["markdown.showPreviewToSide"]
+		}
+	],
+	"vim.insertModeKeyBindings": [
+		{
+			"before": ["<c-p>"],
+			"after": ["<c-r>", "+"]
+		}
+	],
+	"vim.commandLineModeKeyBindings": [
+		{
+			"before": ["c-p"],
+			"after": ["<c-r", "+"]
+		}
+	],
+	"vim.visualModeKeyBindings": [
+		{
+			"before": ["<leader>", "s"],
+			"after": ["y", ":", "%", "s", "/", "<c-p>", "/"]
+		}
+	]
 }
