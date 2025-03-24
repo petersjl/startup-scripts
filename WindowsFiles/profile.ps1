@@ -1,3 +1,24 @@
+Import-Module Dotenv
+Enable-Dotenv
+Function prompt {
+    if(Test-Path function:/Update-Dotenv) { Dotenv\Update-Dotenv }
+    $currentDrive = $pwd.drive.name
+    $currentFolder = Split-Path -path $pwd -Leaf
+    try {
+        $gitdir = Split-Path -Path $(git rev-parse --show-toplevel) -Leaf
+    }catch{
+        $gitdir = ""
+    }
+    Write-Host "[$currentDrive`:]" -ForegroundColor DarkGreen -NoNewline
+    if($gitdir -ne  "") {
+        Write-Host " $gitdir`:$(git branch --show-current)" -ForegroundColor Magenta -NoNewline
+    }
+    if ($gitdir -ne $currentFolder){
+        Write-Host " $currentFolder" -ForegroundColor DarkCyan -NoNewline
+    }
+    return "> "
+}
+
 new-alias -Name np -Value notepad
 # --General functions
 Function prof { code $PROFILE }
@@ -17,6 +38,13 @@ Function c {
         code $filepath
     }
 }
+Function which {
+    param ($command)
+    (Get-Command $command).Path
+}
+Function la {
+    Get-ChildItem -Force
+}
 
 # --Git
 Function gph { git push $Args }
@@ -24,46 +52,12 @@ Function gpl { git pull $Args }
 Function gf { git fetch $Args }
 Function gs { git status $Args }
 Function gas { git add * $Args }
+Remove-Alias -Name gcm -Force
 Function gcm { git commit -m $Args }
 
 # --Docker
 $defaultProfile = 'local'
 Function dockerstop { docker stop $(docker ps -a -q) }
-Function dcud {
-    param(
-        [parameter(position = 0)] [string] $profile = $defaultProfile,
-        [parameter(position = 1, ValueFromRemainingArguments=$true)] $Remaining
-    )
-    docker compose --profile $profile up -d
-}
-Function dcub {
-    param(
-        [parameter(position = 0)] [string] $profile = $defaultProfile,
-        [parameter(position = 1, ValueFromRemainingArguments=$true)] $Remaining
-    )
-    docker compose --profile $profile up --build
-}
-Function dcubd {
-    param(
-        [parameter(position = 0)] [string] $profile = $defaultProfile,
-        [parameter(position = 1, ValueFromRemainingArguments=$true)] $Remaining
-    )
-    docker compose --profile $profile up --build -d
-}
-Function dcubw {
-    param(
-        [parameter(position = 0)] [string] $profile = $defaultProfile,
-        [parameter(position = 1, ValueFromRemainingArguments=$true)] $Remaining
-    )
-    docker compose --profile $profile up --build --watch
-}
-Function dcdv {
-    param(
-        [parameter(position = 0)] [string] $profile = $defaultProfile,
-        [parameter(position = 1, ValueFromRemainingArguments=$true)] $Remaining
-    )
-    docker compose --profile $profile down --volumes @Remaining 
-}
 # Connect to postgress. Replace variables before use
 # Function dpsql {docker exec -e PGPASSWORD=<password> -it $(docker ps -q) psql -U <database-user> -d <database-name>}
 
