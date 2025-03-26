@@ -52,8 +52,29 @@ Function gpl { git pull $Args }
 Function gf { git fetch $Args }
 Function gs { git status $Args }
 Function gas { git add * $Args }
+Remove-Alias -Name gc -Force
+Function gc {git checkout @Args }
+Remove-Alias -Name gcb -Force
+Function gcp {
+    param ([string]$branch);
+    gc $branch;
+    gpl;
+}
+Function gcb { git checkout -b @Args }
 Remove-Alias -Name gcm -Force
-Function gcm { git commit -m $Args }
+Function gcm { git commit -m @Args }
+Function gcam {git add * && git commit -m @Args}
+Function gbclean {
+    param([string[]] $ignore = @())
+    $ignore += @("dev", "qa", "prod", "main")
+    $branches = git branch --merged
+    foreach ($branch in $branches) {
+        if ($branch -match '\*') { continue }
+        if ($ignore -match $branch.Trim()) { continue }
+        git branch -d $branch.Trim()
+    }
+}
+Function glist { git branch --list }
 
 # --Docker
 $defaultProfile = 'local'
